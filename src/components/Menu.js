@@ -11,72 +11,56 @@ const currentTab = (history, path) => {
 };
 
 const Menu = ({ history }) => (
-  <div>
-    <ul className="nav nav-tabs bg-danger">
-      <li className="nav-item">
-        <Link style={currentTab(history, "/")} className="nav-link" to="/">
+  <div className="bg-danger">
+    <div className="nav nav-tabs container">
+      <div className="nav-item">
+        <Link
+          style={currentTab(history, "/")}
+          className="nav-link text-white"
+          to="/"
+        >
           MyKeep
         </Link>
-      </li>
-      {isAuthenticated() && isAuthenticated().user.role === 0 && (
-        <li className="nav-item">
-          <Link
-            style={currentTab(history, "/user/dashboard")}
-            className="nav-link"
-            to="/user/dashboard"
-          >
-            Dashboard
-          </Link>
-        </li>
-      )}
-      {isAuthenticated() && isAuthenticated().user.role === 1 && (
-        <li className="nav-item">
-          <Link
-            style={currentTab(history, "/admin/dashboard")}
-            className="nav-link"
-            to="/admin/dashboard"
-          >
-            A. Dashboard
-          </Link>
-        </li>
-      )}
+      </div>
       {!isAuthenticated() && (
         <Fragment>
-          <li className="nav-item">
-            <Link
-              style={currentTab(history, "/signup")}
-              className="nav-link"
-              to="/signup"
-            >
-              Signup
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              style={currentTab(history, "/signin")}
-              className="nav-link"
-              to="/signin"
-            >
-              Signin
-            </Link>
-          </li>
+          <div className="ml-auto d-inline-flex">
+            <div className="nav-item">
+              <Link
+                style={currentTab(history, "/signup")}
+                className="nav-link"
+                to="/signup"
+              >
+                Signup
+              </Link>
+            </div>
+            <div className="nav-item">
+              <Link
+                style={currentTab(history, "/signin")}
+                className="nav-link"
+                to="/signin"
+              >
+                Signin
+              </Link>
+            </div>
+          </div>
         </Fragment>
       )}
       {isAuthenticated() && (
-        <li className="nav-item">
+        <div className="nav-item ml-auto">
           <span
-            className="nav-link text-warning"
+            className="nav-link text-white"
             onClick={() => {
               signout(() => {
                 history.push("/");
               });
             }}
           >
-            signout
+            Signout
           </span>
-        </li>
+        </div>
       )}
-    </ul>
+    </div>
   </div>
 );
 

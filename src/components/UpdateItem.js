@@ -57,10 +57,11 @@ const UpdateItem = ({ match, history }) => {
             <input
               type="text"
               style={{
-                border: "0px solid black",
+                border: "1px solid black",
                 borderRadius: "3px",
                 outline: "none",
                 width: "100%",
+                marginBottom: "10px",
               }}
               className="p-2 d-block"
               placeholder="Title"
@@ -71,10 +72,11 @@ const UpdateItem = ({ match, history }) => {
               type="text"
               value={description}
               style={{
-                border: "0px solid black",
+                border: "1px solid black",
                 borderRadius: "3px",
                 outline: "none",
                 width: "100%",
+                marginBottom: "10px",
               }}
               className="p-2 d-block"
               placeholder="Description"
